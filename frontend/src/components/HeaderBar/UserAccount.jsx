@@ -33,7 +33,7 @@ const UserAccount = () => {
             <User className="w-6 h-6 text-indigo-600" />
             {/* Hiển thị tên (chỉ lấy chữ đầu) */}
             <span className="text-xs font-normal text-indigo-600">
-              {user.name.split(' ')[0]} 
+              {user?.name?.split(' ')?.[0] ?? "User"}
             </span>
           </Button>
         </DropdownMenuTrigger>
