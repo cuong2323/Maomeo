@@ -1,31 +1,20 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Search } from "lucide-react";
+import React from 'react';
+import { Input } from '@/components/ui/input';  // Đảm bảo đường dẫn đúng
+import { Button } from '@/components/ui/button'; // Đảm bảo đường dẫn đúng
+import { Search } from 'lucide-react';
 
 const SearchBar = () => {
-  const [keyword, setKeyword] = useState("");
-  const navigate = useNavigate();
-
-  const handleSearch = () => {
-    if (keyword.trim() !== "") {
-      navigate(`/search?name=${keyword}`);
-    }
-  };
-
   return (
     <div className="flex w-full grow overflow-hidden rounded-lg bg-gray-50 shadow-inner">
       <Input
         type="search"
-        placeholder="Tìm kiếm sản phẩm..."
-        value={keyword}
-        onChange={(e) => setKeyword(e.target.value)}
-        className="border-none grow focus-visible:ring-0 py-2 text-xl"
+        placeholder="Tìm kiếm sách "
+        // Tắt border và ring của input để nó liền mạch
+        className="border-none grow focus-visible:ring-0 focus-visible:ring-offset-0 py-2 text-xl placeholder:text-lg"
       />
-      <Button className="bg-primary rounded-l-none" onClick={handleSearch}>
-        <Search className="w-5 h-5" />
-      </Button>
+      <Button className="bg-primary hover:bg-primary-dark rounded-l-none">
+        <Search className="w-5 h-5" /> 
+       </Button>
     </div>
   );
 };
